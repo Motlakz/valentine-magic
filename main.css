@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200&family=Ubuntu:wght@300&display=swap');
+
+* {
+  box-sizing: border-box;
+  font-family: 'Lexend Deca', 'Ubuntu', monospace, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --lightpink: pink;
+  --deeppink: deeppink;
+  --violet: blueviolet;
+  --hot-red: red;
+  --main-bg-color: rgb(243 232 255);
+  --main-white: #fff;
+  --soft-bg: rgb(251 207 232);
+}
+
+nav {
+    ul {
+        li:hover {
+            box-shadow: rgba(240, 46, 170, 0.4) 5px 5px;
+        }
+
+        button:hover {
+            box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px, rgba(240, 46, 170, 0.2) 15px 15px;
+        }
+
+        li, button, .cookies button {
+            transition: all .5s ease-in-out;
+        }
+    }
+}
+
+.nav-toggler {
+  display: none;
+  height: 40px;
+
+  span, span:before, span:after {
+    width: 28px;
+    height: 3px;
+    background-color: var(--hot-red);
+    display: block;
+    transition: 0.3s;
+  }
+
+  span:before {
+    content: '';
+    transform: translateY(-9px);
+  }
+
+  span:after {
+    content: '';
+    transform: translateY(6px);
+  }
+
+  &.toggler-open {
+    span {
+      background-color: transparent;
+    }
+
+    span:before {
+      transform: translateY(0px) rotate(45deg);
+    }
+
+    span:after {
+      transform: translateY(-3px) rotate(-45deg);
+    }
+  }
+}
+
+header {
+  background: url("./src/assets/pexels-karolina-grabowska-4870833.jpg") left/cover fixed;
+  font-weight: 700;
+  height: 70vh;
+  text-shadow: rgba(0, 0, 0, 0.35) 2px 2px 2px;
+}
+
+.cards {
+    .card {
+        background: url("./src/assets/polka-dot-bg.jpg");
+        background-size: cover;
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+        transition: box-shadow .5s ease;
+
+        &:hover {
+        box-shadow: rgba(249, 2, 2, 0.4) 5px 5px;
+        }
+
+        .icon img {
+        height: 16px;
+        width: 16px;
+        }
+
+        figure img {
+        height: 260px;
+        width: 100%;
+        }
+    }
+}
+
+.dropdown {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    background-color: var(--hot-red);
+    margin: 10px;
+    text-align: left;
+    position: relative;
+
+    .toggle-btn {
+        color: var(--main-white);
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 18px;
+        font-weight: bold;
+
+        &::before {
+            animation: spin-rotate 2s ease, spin-padding 2s ease;
+            content: "+";
+            color: maroon;
+            background-color: var(--lightpink);
+            font-weight: 800;
+            padding: 10px;
+            display: inline-block;
+            margin-right: 8px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        &.open::before {
+            transform: rotate(45deg);
+            background: none;
+        }
+
+        &.open {
+            background-color: var(--lightpink);
+            transition: background-color .5s ease;
+            color: purple;
+            padding-right: 15px;
+        }
+    }
+
+    .content {
+        color: var(--main-white);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.5s ease-in-out;
+
+        &.open {
+            color: var(--main-white);
+            padding: 20px;
+            max-height: 800px;
+        }
+    }
+}
+
+.cookies {
+    button {
+        transition: all .3s ease;
+    }
+}
+
+.flipped-image {
+  transform: scaleX(-1);
+}
+
+.rotated-image {
+    transform: scaleY(-1);
+}
+
+.rotated-up {
+  transform: rotate(180deg);
+}
+
+/* animations */
+.animate__animated.active {
+  opacity: 1;
+  animation: .5s slideInLeft ease;
+}
+
+.slit-in-vertical.active {
+  opacity: 1;
+  animation: .5s slit-in-vertical ease;
+}
+
+.slit-in-vertical, .animate__animated {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+@keyframes slit-in-vertical {
+  0% {
+    -webkit-transform: translateZ(-800px) rotateY(90deg);
+    transform: translateZ(-800px) rotateY(90deg);
+    opacity: 0;
+  }
+
+  54% {
+    -webkit-transform: translateZ(-160px) rotateY(87deg);
+    transform: translateZ(-160px) rotateY(87deg);
+    opacity: 1;
+  }
+
+  100% {
+    -webkit-transform: translateZ(0) rotateY(0);
+    transform: translateZ(0) rotateY(0);
+  }
+}
+
+/* modern media queries */
+@media (width <= 780px) {
+  .cards {
+        grid-template-columns: 2fr 2fr;
+
+        .card {
+            figure img {
+                height: 200px;
+                width: 280px;
+            }
+        }
+    }
+}
+
+@media (width <= 650px) {
+    .nav-toggler {
+        display: block;
+        margin: 10px;
+        padding: 4px;
+    }
+
+    nav {
+        background: var(--main-bg-color);
+        position: sticky;
+        top: 0;
+        left: 0;
+        height: 100px;
+        z-index: 100;
+      
+        ul {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            max-width: 400px;
+            right: -100%;
+            font-weight: bolder;
+            top: 100px;
+            background-color: var(--soft-bg);
+            border-radius: 6px;
+            max-height: 0;
+            padding: 10px 0;
+            overflow: hidden;
+            transition: .4s;
+        
+            &.open {
+                align-items: center;
+                text-align: center;
+                justify-content: center;
+                width: 100%;
+                max-height: 400px;
+                overflow: visible;
+                right: 0;
+            }
+        
+            li {
+                cursor: pointer;
+                width: 100%;
+                &:hover {
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+
+    .dropdown {
+        .toggle-btn,
+        .content {
+            font-size: 14px;
+        }
+    }
+
+    .cookies {
+        flex-direction: column;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+}
+
+@media (width <= 475px) {
+  .cards {
+        grid-template-columns: 2fr;
+
+        .card {
+            figure img {
+                height: 250px;
+            }
+        }
+    }
+}
