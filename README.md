@@ -23,7 +23,7 @@ Users should be able to:
 
 ### Links
 
-- Live Site URL: [Valentine Landing Page](https://motlakz.github.io/valentine-landing-page/)
+- Live Site URL: [Valentine Landing Page](https://motlakz.github.io/valentine-magic/)
 
 ### Built with
 
