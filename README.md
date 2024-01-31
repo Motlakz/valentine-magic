@@ -18,12 +18,12 @@ Users should be able to:
 - See hover states for all interactive elements
 - Close cookies container
 - Toggle mobile menu where applicable
-- Toggle the dropdowns for the FAQs ro read their content
+- Toggle the dropdowns for the FAQs to read their content
 - Scroll through the slideshow pictures
 
 ### Links
 
-- Live Site URL: [Collections Template](https://motlakz.github.io/valentine-landing-page/)
+- Live Site URL: [Valentine Landing Page](https://motlakz.github.io/valentine-landing-page/)
 
 ### Built with
 
